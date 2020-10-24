@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="binary_N_interpolation.c">
+    <ClCompile Include="fibonacciSearch.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
