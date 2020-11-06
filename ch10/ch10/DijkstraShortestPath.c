@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <limits.h>
-#define SIZE 8
+#define SIZE 9
 
 int minVertex(int D[], int chk[]) {
 	int i, minValue = INT_MAX, minIndex;
@@ -36,24 +36,33 @@ void Dijkstra(int G[SIZE][SIZE], int D[], int P[], int i) {
 				}
 		chk[i] = 1; //살펴 볼 축에서 제외
 		cnt++;
+//		printf("%d단계\n", cnt);
+//		printf("D : ");
+//		for (i = 0; i < SIZE; i++)
+//			printf("%5d", D[i]);
+//		printf("\nP : ");
+//		for (i = 0; i < SIZE; i++)
+//			printf("%5d", P[i]);
+//		printf("\n");
 	}
 }
 
 int main(void) {
-	int G[SIZE][SIZE] = { {0, 12, 15, 18, INT_MAX,INT_MAX, INT_MAX, INT_MAX},
-						 {12, 0, INT_MAX, INT_MAX, 33, 26, INT_MAX, INT_MAX},
-						 {15, INT_MAX, 0, 7, INT_MAX, 10, INT_MAX, INT_MAX},
-						 {18, INT_MAX, 7, 0, INT_MAX, INT_MAX, 11, INT_MAX},
-						 {INT_MAX, 33, INT_MAX, INT_MAX, 0, 17, INT_MAX, 15},
-						 {INT_MAX, 26, 10, INT_MAX, 17, 0, INT_MAX, 28},
-						 {INT_MAX, INT_MAX, INT_MAX, 11, INT_MAX, INT_MAX, 0, 20},
-						 {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 15, 28, 20, 0} };
+	int G[SIZE][SIZE] = { {0, INT_MAX, 6, INT_MAX, INT_MAX,9, INT_MAX, INT_MAX, INT_MAX},
+						 {INT_MAX, 0, 18, INT_MAX, 11, 1, INT_MAX, INT_MAX, 35},
+						 {6, 18, 0, 17, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX},
+						 {INT_MAX, INT_MAX, 17, 0, INT_MAX, INT_MAX, INT_MAX, 24, INT_MAX},
+						 {INT_MAX, 11, INT_MAX, INT_MAX, 0, 40, 10, INT_MAX, 44},
+						 {9, 1, INT_MAX, INT_MAX, 40, 0, INT_MAX, INT_MAX, INT_MAX},
+						 {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 10, INT_MAX, 0, 12, 29},
+						 {INT_MAX, INT_MAX, INT_MAX, 24, INT_MAX, INT_MAX, 12, 0, 30},
+						 {INT_MAX, 35, INT_MAX, INT_MAX, 44, INT_MAX, 29, 30, 0}};
 
-	char V[SIZE] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
+	char V[SIZE] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'};
 	char shortestPath[SIZE];
 	char departureVertex, arrivalVertex;
 	int P[SIZE] = { 0, };
-	int D[SIZE] = { INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX };
+	int D[SIZE] = { INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX };
 	int i, j, vertexNum, vertexCnt = 0, departureNum;
 
 	printf("\n\t[인접 정점과의 거리]\n ");
